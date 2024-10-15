@@ -141,12 +141,12 @@ class AudioStreamerPlugin : FlutterPlugin, RequestPermissionsResultListener, Eve
                     audioRecord.read(audioBuffer, 0, audioBuffer.size)
                     Handler(Looper.getMainLooper()).post {
                         // / Convert to list in order to send via EventChannel.
-                        val audioBufferList = ArrayList<Double>()
-                        for (impulse in audioBuffer) {
-                            val normalizedImpulse = impulse.toDouble() / maxAmplitude.toDouble()
-                            audioBufferList.add(normalizedImpulse)
-                        }
-                        eventSink!!.success(audioBufferList)
+                        //val audioBufferList = ArrayList<Double>()
+                        //for (impulse in audioBuffer) {
+                        //    val normalizedImpulse = impulse.toDouble() / maxAmplitude.toDouble()
+                        //    audioBufferList.add(normalizedImpulse)
+                        //}
+                        eventSink!!.success(audioBuffer)
                     }
                 }
                 audioRecord.stop()
